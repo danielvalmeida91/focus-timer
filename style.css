@@ -1,0 +1,95 @@
+:root {
+  font-size: 62.5%;
+  --bg-primary: #fff;
+  --bg-secondary: #e1e1e6;
+  --bg-selected: #02799d;
+  --fs-header: 12.6rem;
+
+  --fc-primary: #323238;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  text-align: center;
+  margin: auto;
+}
+
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 19rem;
+
+  width: 100vw;
+  height: 100vh;
+}
+
+/* ############# LEFT PANEL #############*/
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.7rem;
+}
+
+.clock {
+  display: flex;
+  gap: 0;
+}
+
+.clock span {
+  font-size: 12.6rem;
+  line-height: 14.8rem;
+}
+
+.controls {
+  display: flex;
+  gap: 4rem;
+}
+
+/* ############# RIGHT PANEL ############*/
+
+.cards {
+  display: grid;
+  grid-template-areas: 'A B' 'C D';
+  gap: 3.2rem;
+}
+
+.cards .card:nth-child(1) {
+  grid-area: A;
+}
+.cards .card:nth-child(2) {
+  grid-area: B;
+}
+.cards .card:nth-child(3) {
+  grid-area: C;
+}
+.cards .card:nth-child(4) {
+  grid-area: D;
+}
+
+.card {
+  width: 13.8rem;
+  height: 15.2rem;
+
+  background-color: var(--bg-secondary);
+  border-radius: 2.4rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card:hover {
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.selected {
+  background-color: var(--bg-selected);
+}
