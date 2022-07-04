@@ -1,4 +1,5 @@
 import Controls from './controls.js'
+import Timer from './timer.js'
 import {
   buttonPlay,
   buttonStop,
@@ -25,6 +26,32 @@ const controls = Controls({
   svgRain,
   svgCoffee,
   svgFireplace
+})
+
+const timer = Timer({
+  minutesDisplay,
+  secondsDisplay
+})
+
+buttonPlay.addEventListener('click', () => {
+  timer.countdown()
+})
+
+buttonStop.addEventListener('click', () => {
+  timer.hold()
+})
+
+buttonPlus.addEventListener('click', () => {
+  let minutes = Number(minutesDisplay.textContent)
+
+  timer.updateMinutes(minutes)
+  timer.add()
+})
+
+buttonMinus.addEventListener('click', () => {
+  let minutes = Number(minutesDisplay.textContent)
+  timer.subtract()
+  timer.updateMinutes(minutes)
 })
 
 cardForest.addEventListener('click', () => {

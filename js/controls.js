@@ -1,13 +1,5 @@
 import Sound from './sounds.js'
 export default function Controls({
-  cardForest,
-  cardRain,
-  cardCoffee,
-  cardFireplace,
-  svgForest,
-  svgRain,
-  svgCoffee,
-  svgFireplace
 }) {
   const sounds = Sound()
 
