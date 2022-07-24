@@ -14,7 +14,14 @@ import {
   svgCoffee,
   svgForest,
   svgRain,
-  svgFireplace
+  svgFireplace,
+  sliderForest,
+  sliderRain,
+  sliderCoffee,
+  sliderFireplace,
+  darkButton,
+  lightButton,
+  body
 } from './elements.js'
 
 const controls = Controls({
@@ -55,17 +62,31 @@ buttonMinus.addEventListener('click', () => {
 })
 
 cardForest.addEventListener('click', () => {
-  controls.cardPlaying(cardForest, svgForest)
+  controls.cardPlaying(cardForest, svgForest, sliderForest)
 })
 
 cardRain.addEventListener('click', () => {
-  controls.cardPlaying(cardRain, svgRain)
+  controls.cardPlaying(cardRain, svgRain, sliderRain)
 })
 
 cardCoffee.addEventListener('click', () => {
-  controls.cardPlaying(cardCoffee, svgCoffee)
+  controls.cardPlaying(cardCoffee, svgCoffee, sliderCoffee)
 })
 
 cardFireplace.addEventListener('click', () => {
-  controls.cardPlaying(cardFireplace, svgFireplace)
+  controls.cardPlaying(cardFireplace, svgFireplace, sliderFireplace)
+})
+
+darkButton.addEventListener('click', () => {
+  darkButton.classList.add('hide')
+  lightButton.classList.remove('hide')
+
+  body.classList.remove('theme-dark')
+})
+
+lightButton.addEventListener('click', () => {
+  lightButton.classList.add('hide')
+  darkButton.classList.remove('hide')
+
+  body.classList.add('theme-dark')
 })

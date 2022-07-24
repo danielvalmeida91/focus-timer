@@ -1,12 +1,13 @@
 import Sound from './sounds.js'
-export default function Controls({
-}) {
+export default function Controls({}) {
   const sounds = Sound()
 
-  function cardPlaying(playing, selected) {
+  function cardPlaying(playing, selected, slider) {
     if (!cardSelected(playing)) {
       playing.classList.add('selected')
-      selected.setAttribute('fill', 'white')
+      selected.setAttribute('fill', 'var(--fc-white)')
+      slider.classList.add('playing')
+
       if (playing.classList.contains('forest')) {
         sounds.playCardForest()
       } else if (playing.classList.contains('rain')) {
@@ -18,7 +19,8 @@ export default function Controls({
       }
     } else {
       playing.classList.remove('selected')
-      selected.setAttribute('fill', '#323328')
+      selected.setAttribute('fill', 'var(--fc-cards-buttons)')
+      slider.classList.remove('playing')
       if (playing.classList.contains('forest')) {
         sounds.pauseCardForest()
       } else if (playing.classList.contains('rain')) {

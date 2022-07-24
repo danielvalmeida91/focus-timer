@@ -1,11 +1,7 @@
 :root {
   font-size: 62.5%;
-  --bg-primary: #fff;
-  --bg-secondary: #e1e1e6;
-  --bg-selected: #02799d;
-  --fs-header: 12.6rem;
 
-  --fc-primary: #323238;
+  --ff-primary: 'Roboto', sans-serif;
 }
 
 * {
@@ -15,16 +11,35 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
+  font-size: 1.6rem;
+
+  --fc-primary: hsla(240, 6%, 21%, 1);
+  --fc-secondary: hsla(240, 9%, 89%, 1);
+  --fc-white: hsla(0, 0%, 100%, 1);
+  --fc-cards-buttons: hsla(240, 6%, 21%, 1);
+
+  --bg-selected: hsla(194, 97%, 31%, 1);
+  --bg-selected-light: hsla(194, 97%, 31%, 0.7);
+
   text-align: center;
   margin: auto;
 }
 
+.theme-dark {
+  --fc-primary: hsla(0, 0%, 100%, 1);
+  --fc-secondary: hsla(240, 6%, 17%, 1);
+  --fc-cards-buttons: hsla(240, 7%, 78%, 1);
+
+  --bg-selected: hsla(195, 74%, 15%, 1);
+  --bg-selected-light: rgba(10, 52, 67, 0.71);
+
+  background-color: hsla(240, 5%, 7%, 1);
+}
+
 .page {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   gap: 19rem;
 
   width: 100vw;
@@ -46,6 +61,9 @@ body {
 .clock span {
   font-size: 12.6rem;
   line-height: 14.8rem;
+
+  color: var(--fc-primary);
+  font-family: var(--ff-primary);
 }
 
 .controls {
@@ -55,7 +73,19 @@ body {
 
 button {
   border: none;
-  background-color: var(--bg-primary);
+  background: transparent;
+
+  object-fit: cover;
+
+  cursor: pointer;
+}
+
+button svg path {
+  fill: var(--fc-cards-buttons);
+}
+
+.control button:hover svg path {
+  fill: var(--fc-secondary);
 }
 
 /* ############# RIGHT PANEL ############*/
@@ -64,6 +94,10 @@ button {
   display: grid;
   grid-template-areas: 'A B' 'C D';
   gap: 3.2rem;
+}
+
+.cards div svg path {
+  fill: var(--fc-cards-buttons);
 }
 
 .cards .forest:nth-child(1) {
@@ -86,12 +120,66 @@ button {
   width: 13.8rem;
   height: 15.2rem;
 
-  background-color: var(--bg-secondary);
+  background-color: var(--fc-secondary);
   border-radius: 2.4rem;
 
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 3.2rem;
+}
+
+.slide {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  -webkit-transition: 0.2s;
+  appearance: none;
+
+  width: 9rem;
+  height: 0.4rem;
+  border-radius: 0.5rem;
+
+  background: var(--fc-primary);
+  transition: opacity 0.2s;
+  outline: none;
+}
+
+.slider:hover {
+  opacity: 0.7;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  border: none;
+  background: var(--fc-primary);
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: var(--fc-primary);
+  border: none;
+  cursor: pointer;
+}
+
+.slider.playing::-moz-range-thumb {
+  background: var(--fc-white);
+}
+
+.slider.playing::-webkit-slider-thumb {
+  background: var(--fc-white);
 }
 
 .forest:hover,
@@ -103,4 +191,32 @@ button {
 
 .selected {
   background-color: var(--bg-selected);
+}
+
+.selected:hover {
+  background-color: var(--bg-selected-light);
+}
+
+.playing {
+  background: var(--fc-white);
+}
+
+.dark,
+.light {
+  position: absolute;
+
+  right: 6.4rem;
+  top: 6.4rem;
+}
+
+.hide {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }

@@ -13,8 +13,20 @@ const svgRain = document.querySelector('#svgRain')
 const svgCoffee = document.querySelector('#svgCoffee')
 const svgFireplace = document.querySelector('#svgFireplace')
 
+const sliderForest = document.querySelector('#sliderForest')
+const sliderRain = document.querySelector('#sliderRain')
+const sliderCoffee = document.querySelector('#sliderCoffee')
+const sliderFireplace = document.querySelector('#sliderFireplace')
+
 let minutesDisplay = document.querySelector('.minutes')
 let secondsDisplay = document.querySelector('.seconds')
+
+const darkButton = document.querySelector('.dark')
+const lightButton = document.querySelector('.light')
+
+const body = document.body
+
+const card = document.querySelector('.cards')
 
 export {
   buttonPlay,
@@ -29,6 +41,13 @@ export {
   svgRain,
   svgCoffee,
   svgFireplace,
+  sliderForest,
+  sliderRain,
+  sliderCoffee,
+  sliderFireplace,
   minutesDisplay,
-  secondsDisplay
+  secondsDisplay,
+  darkButton,
+  lightButton,
+  body
 }
